@@ -1,0 +1,367 @@
+/* -----------------------------------------
+   BMW Luxury theme — colors, fonts, texture
+   Files: css/style.css
+   ----------------------------------------- */
+
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+/* Fonts & variables */
+:root {
+  --cream: #f3ede4;
+  --beige: #e9d7c6;
+  --caramel: #80f8fc;
+  --mocha: #676b45;
+  --espresso: #1b198f;
+  --accent: #f5e71f;
+  --shadow: rgba(0, 0, 0, 0.25);
+}
+
+/* Base */
+body {
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--cream);
+  color: var(--espresso);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  padding: 0;
+  margin: 0;
+}
+
+/* Grid container (same layout as original) */
+.container {
+  display: grid;
+  grid-template-columns: 180px 1fr 1fr;
+  grid-template-rows: 100px 420px 1fr 220px;
+  min-height: 100vh;
+  gap: 0;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* subtle global paper texture overlay (light) */
+.container::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("Responsive-Grid-main\assets\BMW M340i.jpg");
+  opacity: 0.06;
+  mix-blend-mode: multiply;
+  z-index: 5;
+}
+
+/* HEADER / LOGO */
+.header {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  background: linear-gradient(180deg, var(--mocha), #a8a2f3);
+  color: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  letter-spacing: 1px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  z-index: 2;
+}
+
+.logo {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 20px;
+}
+
+.logo-icon {
+  font-size: 22px;
+}
+
+/* MENU */
+.menu {
+  grid-column: 2/4;
+  grid-row: 1/2;
+  background: linear-gradient(90deg, rgba(199, 155, 99, 0.95), rgba(233, 215, 198, 0.9));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+  z-index: 2;
+}
+
+.menu a {
+  color: var(--espresso);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 6px 8px;
+  transition: color .18s ease, transform .18s ease;
+}
+
+.menu a:hover {
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* HERO */
+.hero {
+  grid-column: 1/4;
+  grid-row: 2/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  min-height: 420px;
+  background: linear-gradient(135deg, rgba(83, 52, 35, 0.6), rgba(83, 52, 35, 0.25));
+  background-blend-mode: overlay;
+  background-image:
+    linear-gradient(135deg, rgba(83, 52, 35, 0.45), rgba(83, 52, 35, 0.15)),
+    url("Responsive-Grid-main\assets\Say Hello To The 2023 BMW 3 Series.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+/* decorative overlay — subtle vignette + paper */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.08));
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+/* hero text styles */
+.hero-text {
+  color: var(--cream);
+  text-align: center;
+  z-index: 3;
+  padding: 24px 32px;
+  backdrop-filter: blur(2px);
+}
+
+.hero-text h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 56px;
+  margin-bottom: 10px;
+  text-shadow: 2px 6px 18px rgba(0, 0, 0, 0.45);
+  letter-spacing: 1px;
+}
+
+.hero-text p {
+  font-size: 20px;
+  margin-bottom: 18px;
+  opacity: 0.95;
+}
+
+/* CTA */
+.cta {
+  display: inline-block;
+  padding: 12px 26px;
+  background: linear-gradient(90deg, var(--mocha), var(--accent));
+  color: var(--cream);
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.cta:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.26);
+}
+
+/* MAIN content */
+.main {
+  grid-column: 1/3;
+  grid-row: 3/4;
+  background: var(--mocha);
+  color: var(--cream);
+  padding: 44px;
+  font-size: 18px;
+  line-height: 1.7;
+  z-index: 2;
+  box-shadow: inset -6px 0 0 rgba(0, 0, 0, 0.03);
+}
+
+.main h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 36px;
+  margin-bottom: 14px;
+}
+
+.signature {
+  margin-top: 18px;
+  font-style: italic;
+  opacity: 0.9;
+}
+
+/* Right-side image */
+.image {
+  grid-column: 3/4;
+  grid-row: 3/4;
+  background-image: url("../assets/PJM020719Q202_Luxe_WanakaNZ_LivingRoom_0264-LightOn_R1.jpg");
+  background-position: center;
+  background-size: cover;
+  min-height: 220px;
+  z-index: 1;
+}
+
+/* BANNER */
+.banner {
+  grid-column: 1/3;
+  grid-row: 4/5;
+  background: linear-gradient(180deg, var(--beige), #ffffff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 2;
+  border-top: 4px solid rgba(0, 0, 0, 0);
+}
+
+.banner-content h3 {
+  color: var(--espresso);
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.btn-get {
+  padding: 10px 22px;
+  background: var(--mocha);
+  color: var(--cream);
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform .15s ease;
+}
+
+.btn-get:hover {
+  transform: translateY(-3px);
+}
+
+/* EXTRA info box */
+.extra {
+  grid-column: 3/4;
+  grid-row: 4/5;
+  background: linear-gradient(180deg, #ffffff, #8b5a33);
+  color: var(--cream);
+  padding: 34px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 2;
+}
+
+.extra h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  font-family: "Cormorant Garamond", serif;
+}
+
+.extra ul {
+  margin-left: 12px;
+  margin-top: 6px;
+}
+
+.extra li {
+  margin-bottom: 8px;
+}
+
+/* subtle coffee beans pattern layer on certain elements */
+.header,
+.menu,
+.banner,
+.extra {
+  background-image: linear-gradient(invert, rgb(255, 255, 255)), url("../assets/Screenshot 2025-12-03 053942.png");
+  background-blend-mode: overlay;
+  background-size: auto;
+  background-repeat: repeat;
+  opacity: 0.98;
+}
+
+/* small screens / tablet adjustments */
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: 110px 1fr 1fr;
+    grid-template-rows: 100px 380px 1fr 180px 180px;
+  }
+
+  .menu {
+    flex-direction: column;
+    gap: 18px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-text h1 {
+    font-size: 42px;
+  }
+
+  .main {
+    padding: 28px;
+    font-size: 16px;
+  }
+}
+
+/* mobile */
+@media (max-width:768px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 80px 60px 300px auto 180px 150px 200px;
+  }
+
+  .header {
+    font-size: 18px;
+    padding: 8px;
+  }
+
+  .menu {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    gap: 18px;
+    flex-direction: row;
+    padding: 8px;
+    overflow: auto;
+  }
+
+  .hero-text h1 {
+    font-size: 28px;
+  }
+
+  .main {
+    padding: 20px;
+    grid-column: 1/2;
+    grid-row: 4/5;
+  }
+
+  .image {
+    grid-column: 1/2;
+    grid-row: 7/8;
+    min-height: 200px;
+  }
+
+  .extra {
+    grid-column: 1/2;
+    grid-row: 6/7;
+  }
+
+  .banner {
+    grid-column: 1/2;
+    grid-row: 5/6;
+  }
+}
